@@ -22,7 +22,7 @@ export const VideoPlayer = props => {
       // url={url}
       url="https://bitdash-a.akamaihd.net/content/sintel/hls/playlist.m3u8"
       // url="https://d1dgcz2mzc8ifr.cloudfront.net/speaking-test-3qs-jack/index.m3u8"
-      controls={true}
+      controls={false}
       width="600px"
       height="600px"
       playing={true}
