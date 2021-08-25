@@ -1,5 +1,5 @@
 # React App
-[DEMO LINK](https://YuriiRysyn.github.io/OS-system-TT-catalog/)
+[DEMO LINK](https://YuriiRysyn.github.io/Sandbox/)
 
 
 # Project was created with:
