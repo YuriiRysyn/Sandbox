@@ -1,0 +1,22 @@
+.App {
+  text-align: center;
+}
+
+body {
+  margin: 0;
+}
+
+.Parallax {
+  &__content-container {
+    height: 800px;
+  }
+
+}
+
+.row {
+  display: flex;
+}
+
+.col {
+  margin-left: 30px;
+}

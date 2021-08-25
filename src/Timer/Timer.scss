@@ -1,0 +1,71 @@
+.Timer {
+  position: relative;
+  margin: auto;
+  height: 80px;
+  width: 80px;
+  text-align: center;
+}
+
+.Timer-number {
+  display: inline-block;
+  color: #333;
+  font-weight: 600;
+  line-height: 80px;
+  font-size: 20px;
+}
+
+.Timer-svg {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 80px;
+  height: 80px;
+  transform: rotateY(-180deg) rotateZ(-90deg);
+}
+
+.Timer-svg circle {
+  stroke-dasharray: 185px;
+  stroke-dashoffset: 0px;
+
+  stroke-linecap: round;
+  stroke-width: 5px;
+  stroke: #7db52d;
+  fill: none;
+}
+
+.Timer__prep-timer circle {
+  animation: countdown 60s infinite linear forwards;
+}
+
+// .Timer__record-timer circle {
+//   animation: countdown 60s linear infinite forwards;
+// }
+
+@keyframes countdown {
+  from {
+    stroke-dashoffset: 0px;
+  }
+  to {
+    stroke-dashoffset: 182px;
+  }
+}
+
+.backgound-circle {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 80px;
+  height: 80px;
+  transform: rotateY(-180deg) rotateZ(-90deg);
+
+
+  & circle {
+    stroke-dasharray: 184px;
+    stroke-dashoffset: 0px;
+  
+    stroke-linecap: round;
+    stroke-width: 5px;
+    stroke: rgb(230, 219, 219);
+    fill: none;
+  }
+}
