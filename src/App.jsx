@@ -13,8 +13,22 @@ import './App.scss';
 function App() {
   const player = React.createRef();
   const [isAutoPlayEnabled, setIsAutoPlayEnabled] = useState(false);
-  const [playerParams, setPlayerParams] = useState({ isPlaying: true });
+  const [playerParams, setPlayerParams] = useState({
+    isPlaying: true,
+    playedSeconds: '',
+    loadedSeconds: '',
+  });
 
+  const handleProgress = progress => {
+    const currentPlayedSeconds = Math.round(progress.playedSeconds);
+    const currentLoadedSeconds = Math.round(progress.loadedSeconds);
+
+    setPlayerParams({
+      ...playerParams,
+      playedSeconds: currentPlayedSeconds,
+      loadedSeconds: currentLoadedSeconds,
+    });
+  };
 
   // let [count, setCount] = useState(0);
 
@@ -54,7 +68,9 @@ function App() {
         isAutoPlayEnabled={isAutoPlayEnabled}
         setIsAutoPlayEnabled={setIsAutoPlayEnabled}
         playerParams={playerParams}
+        handleProgress={handleProgress}
       />
+      <p>{playerParams.playedSeconds}</p>
       {!isAutoPlayEnabled && (
         <button
           onClick={() => {
