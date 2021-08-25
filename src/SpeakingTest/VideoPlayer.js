@@ -28,8 +28,9 @@ export const VideoPlayer = ({
       className="react-player"
       // url='https://media.w3.org/2010/05/sintel/trailer_hd.mp4'
       // url={url}
-      url="https://bitdash-a.akamaihd.net/content/sintel/hls/playlist.m3u8"
-      // url="https://d1dgcz2mzc8ifr.cloudfront.net/speaking-test-3qs-jack/index.m3u8"
+      // url="https://bitdash-a.akamaihd.net/content/sintel/hls/playlist.m3u8"
+      
+      url="https://d1dgcz2mzc8ifr.cloudfront.net/speaking-test-3qs-jack/index.m3u8"
       controls={false}
       width="320px"
       // height="600px"
