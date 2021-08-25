@@ -2,9 +2,12 @@ import React from 'react';
 import ReactPlayer from 'react-player/file';
 import canAutoPlay from 'can-autoplay';
 
-export const VideoPlayer = props => {
-  const { player } = props;
-
+export const VideoPlayer = ({
+  player,
+  isAutoPlayEnabled,
+  setIsAutoPlayEnabled,
+  playerParams,
+}) => {
   // canAutoPlay
   //     .video({timeout: 100, muted: true})
   //     .then(({result, error}) => {
@@ -12,7 +15,13 @@ export const VideoPlayer = props => {
   //             console.warn('Error did occur: ', error)
   //         }
   //     })
-  const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+
+  const checkAutoPlay = () => {
+    if (!isAutoPlayEnabled) {
+      setIsAutoPlayEnabled(true);
+    }
+  };
+  // const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
   return (
     <ReactPlayer
       ref={player}
@@ -24,19 +33,19 @@ export const VideoPlayer = props => {
       controls={false}
       width="320px"
       // height="600px"
-      playing={true}
+      playing={playerParams.isPlaying}
       playsinline={true}
-      config={{
-        file: {
-          forceHLS: true,
-          forceVideo: true,
-          hlsVersion: '0.12.4',
-          attributes: {
-            // poster: feed && feed.actionUrl && feed.actionUrl.image,
-            disablePictureInPicture: true,
-          },
-        },
-      }}
+      // config={{
+      //   file: {
+      //     forceHLS: true,
+      //     forceVideo: true,
+      //     hlsVersion: '0.12.4',
+      //     attributes: {
+      //       // poster: feed && feed.actionUrl && feed.actionUrl.image,
+      //       disablePictureInPicture: true,
+      //     },
+      //   },
+      // }}
       // onDuration={handleDuration}
       // onProgress={handleProgress}
       // starttime={12}
@@ -44,6 +53,7 @@ export const VideoPlayer = props => {
       // start={12}
       // end={22}
       // muted={true}
+      onStart={checkAutoPlay}
     />
   );
 };

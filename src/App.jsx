@@ -12,18 +12,21 @@ import './App.scss';
 
 function App() {
   const player = React.createRef();
+  const [isAutoPlayEnabled, setIsAutoPlayEnabled] = useState(false);
+  const [playerParams, setPlayerParams] = useState({ isPlaying: true });
 
-  let [count, setCount] = useState(0);
 
-  const dec = () => {
-    setCount(prev => prev + 1);
-    console.log(count);
-    setCount(prev => prev + 1);
-    console.log(count);
+  // let [count, setCount] = useState(0);
 
-    setCount(prev => prev + 1);
-    console.log(count);
-  };
+  // const dec = () => {
+  //   setCount(prev => prev + 1);
+  //   console.log(count);
+  //   setCount(prev => prev + 1);
+  //   console.log(count);
+
+  //   setCount(prev => prev + 1);
+  //   console.log(count);
+  // };
   return (
     <>
       {/* <TypeScriptDev /> */}
@@ -46,7 +49,24 @@ function App() {
       {/* <AppCircle /> */}
       {/* <WaweSound /> */}
       {/* <Timer /> */}
-      <VideoPlayer player={player}/>
+      <VideoPlayer
+        player={player}
+        isAutoPlayEnabled={isAutoPlayEnabled}
+        setIsAutoPlayEnabled={setIsAutoPlayEnabled}
+        playerParams={playerParams}
+      />
+      {!isAutoPlayEnabled && (
+        <button
+          onClick={() => {
+            setPlayerParams({ ...playerParams, isPlaying: false });
+            setTimeout(() => {
+              setPlayerParams({ ...playerParams, isPlaying: true });
+            }, 1);
+          }}
+        >
+          Play{' '}
+        </button>
+      )}
     </>
   );
 }
