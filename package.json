@@ -2,7 +2,7 @@
   "name": "my-app",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://github.com/YuriiRysyn/Sandbox",
+  "homepage": "https://YuriiRysyn.github.io/Sandbox",
   "dependencies": {
     "@react-pdf/renderer": "^2.0.6",
     "@testing-library/jest-dom": "^4.2.4",
