@@ -22,8 +22,9 @@ export const VideoPlayer = ({
       // url='https://media.w3.org/2010/05/sintel/trailer_hd.mp4'
       // url={url}
       // url="https://bitdash-a.akamaihd.net/content/sintel/hls/playlist.m3u8"
-      controls={true}
-      url="https://d1dgcz2mzc8ifr.cloudfront.net/speaking-test-3qs-jack/index.m3u8"
+      controls={false}
+      // url="https://d1dgcz2mzc8ifr.cloudfront.net/speaking-test-3qs-jack/index.m3u8"
+      url="https:///speaking-test-videos.s3.us-west-2.amazonaws.com/speaking-test-3qs-james/index.m3u8"
       width="320px"
       // height="600px"
       playing={playerParams.isPlaying}
@@ -48,7 +49,8 @@ export const VideoPlayer = ({
       // muted={true}
       onProgress={handleProgress}
       onStart={checkAutoPlay}
-      muted={true}
+      // muted={true}
+      volume={0.1}
     />
   );
 };
