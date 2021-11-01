@@ -19,6 +19,48 @@ function App() {
     loadedSeconds: '',
   });
 
+  useEffect(() => {
+    const meta1 = document.createElement('meta');
+    meta1.setAttribute('property', 'og:title');
+    meta1.setAttribute('content', 'Speechace speaking test');
+    document.head.appendChild(meta1);
+
+    // <meta property="og:title" content="Speechace speaking test" />
+
+    const meta2 = document.createElement('meta');
+    meta2.setAttribute('property', 'og:type');
+    meta2.setAttribute('content', 'website');
+    document.head.appendChild(meta2);
+    // <meta property="og:type" content="website" />
+
+    const meta3 = document.createElement('meta');
+    meta3.setAttribute('property', 'og:image');
+    meta3.setAttribute(
+      'content',
+      'https://picsum.photos/id/52/1200/600'
+    );
+    document.head.appendChild(meta3);
+    // <meta property="og:image" content="https://picsum.photos/id/52/1200/600" />
+
+    const meta4 = document.createElement('meta');
+    meta4.setAttribute('property', 'og:description');
+    meta4.setAttribute(
+      'content',
+      'Speechace speaking test result for'
+    );
+    document.head.appendChild(meta4);
+    // <meta property="og:description" content="Speechace speaking test result for " />
+
+    const meta5 = document.createElement('meta');
+    meta5.setAttribute('property', 'og:url');
+    meta5.setAttribute(
+      'content',
+      'https://www.speechace.com/speaking-test/'
+    );
+    document.head.appendChild(meta5);
+    // <meta property="og:url" content="https://www.speechace.com/speaking-test/" />
+  }, []);
+
   const handleProgress = progress => {
     alert('progress--', progress);
     // const currentPlayedSeconds = Math.round(progress.playedSeconds);
