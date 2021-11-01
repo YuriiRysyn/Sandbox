@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 // import TypeScriptDev from './TypeScriptDev.tsx';
 // import Player from './Player';
 // import VideoPart from './SpeakingTest/VideoPart/VideoPart';
@@ -11,16 +11,18 @@ import { VideoPlayer } from './SpeakingTest/VideoPlayer.js';
 import './App.scss';
 
 function App() {
-  const player = React.createRef();
+  const player = React.createRef({});
   const [isAutoPlayEnabled, setIsAutoPlayEnabled] = useState(false);
   const [playerParams, setPlayerParams] = useState({
-    isPlaying: true,
+    isPlaying: false,
     playedSeconds: '',
     loadedSeconds: '',
   });
 
   const handleProgress = progress => {
-    const currentPlayedSeconds = Math.round(progress.playedSeconds);
+    alert('progress--', progress);
+    // const currentPlayedSeconds = Math.round(progress.playedSeconds);
+    const currentPlayedSeconds = Math.round(progress);
     const currentLoadedSeconds = Math.round(progress.loadedSeconds);
 
     setPlayerParams({
@@ -29,40 +31,31 @@ function App() {
       loadedSeconds: currentLoadedSeconds,
     });
   };
+  // const [isPlaying, setIsPlaying] = useState(false);
 
-  // let [count, setCount] = useState(0);
+  // if (player.current) {
+  //   player.current.ontimeupdate = handleProgress;
+  // }
 
-  // const dec = () => {
-  //   setCount(prev => prev + 1);
-  //   console.log(count);
-  //   setCount(prev => prev + 1);
-  //   console.log(count);
+  // useEffect(() => {
+  //   if (!isPlaying && playerParams.isPlaying) {
+  //     setIsPlaying(true);
+  //   } else if (isPlaying && !playerParams.isPlaying) {
+  //     setIsPlaying(false);
+  //   }
+  // }, [playerParams]);
 
-  //   setCount(prev => prev + 1);
-  //   console.log(count);
-  // };
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     if (!isPlaying) {
+  //       // player.current.pause();
+  //     } else {
+  //       player.current.play();
+  //     }
+  //   }, 1);
+  // }, [isPlaying]);
   return (
     <>
-      {/* <TypeScriptDev /> */}
-      {/* <div className="container">
-      <div className="row">
-        <div className="col">
-          FORM
-        </div>
-      </div>
-      <div className="row">
-        <div className="col">
-          Posts
-        </div>
-        <div className="col">
-          Fethced posts
-        </div>
-      </div>
-    </div> */}
-
-      {/* <AppCircle /> */}
-      {/* <WaweSound /> */}
-      {/* <Timer /> */}
       <VideoPlayer
         player={player}
         isAutoPlayEnabled={isAutoPlayEnabled}
@@ -74,13 +67,16 @@ function App() {
       {!isAutoPlayEnabled && (
         <button
           onClick={() => {
-            setPlayerParams({ ...playerParams, isPlaying: false });
-            setTimeout(() => {
-              setPlayerParams({ ...playerParams, isPlaying: true });
-            }, 1);
+            // setPlayerParams({ ...playerParams, isPlaying: false });
+            // setTimeout(() => {
+            //   setPlayerParams({ ...playerParams, isPlaying: true });
+            // }, 100);
+            setPlayerParams({ ...playerParams, isPlaying: true });
+
+            // player.current.play()
           }}
         >
-          Play{' '}
+          Play {player.current}
         </button>
       )}
     </>
