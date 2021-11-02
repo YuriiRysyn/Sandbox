@@ -16,6 +16,7 @@
     "prop-types": "^15.7.2",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
+    "react-helmet": "^6.1.0",
     "react-paralax": "^1.0.0",
     "react-parallax": "^3.2.1",
     "react-player": "^2.9.0",

@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react';
+
+import { Helmet } from 'react-helmet';
 // import TypeScriptDev from './TypeScriptDev.tsx';
 // import Player from './Player';
 // import VideoPart from './SpeakingTest/VideoPart/VideoPart';
@@ -97,21 +99,24 @@ function App() {
   //   }, 1);
   // }, [isPlaying]);
   return (
-    <>
-      <meta property="og:title" content="Speechace speaking test" />
-      <meta property="og:type" content="website" />
-      <meta
-        property="og:image"
-        content="https://picsum.photos/id/52/1200/600"
-      />
-      <meta
-        property="og:description"
-        content="Speechace speaking test result for "
-      />
-      <meta
-        property="og:url"
-        content="https://www.speechace.com/speaking-test/"
-      />
+    <div>
+      <Helmet>
+        <meta property="og:title" content="Speechace speaking test" />
+        <meta property="og:type" content="website" />
+        <meta
+          property="og:image"
+          content="https://picsum.photos/id/52/1200/600"
+        />
+        <meta
+          property="og:description"
+          content="Speechace speaking test result for "
+        />
+        <meta
+          property="og:url"
+          content="https://www.speechace.com/speaking-test/"
+        />
+      </Helmet>
+
       <VideoPlayer
         player={player}
         isAutoPlayEnabled={isAutoPlayEnabled}
@@ -135,7 +140,7 @@ function App() {
           Play {player.current}
         </button>
       )}
-    </>
+    </div>
   );
 }
 
