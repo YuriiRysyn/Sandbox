@@ -4,6 +4,7 @@ import { FacebookButton, FacebookCount } from 'react-social';
 import { Helmet } from 'react-helmet';
 import { VideoPlayer } from './SpeakingTest/VideoPlayer.js';
 import './App.scss';
+import { FacebookMessengerShareButton, FacebookShareButton } from 'react-share';
 
 function App() {
   const player = React.createRef({});
@@ -69,10 +70,10 @@ function App() {
           content="https://www.speechace.com/speaking-test/"
         />
       </Helmet> */}
-      <FacebookButton url={url} appId={'4634286036628789'}>
-        <FacebookCount url={url} />
+      <FacebookShareButton url={url} appId={'4634286036628789'}>
+        {/* <FacebookCount url={url} /> */}
         {' Share ' + url}
-      </FacebookButton>
+      </FacebookShareButton>
     </>
     // <div>
 
