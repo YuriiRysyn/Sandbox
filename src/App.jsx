@@ -54,8 +54,8 @@ function App() {
   // }, [isPlaying]);
   return (
     <>
-      {/* <Helmet>
-        <meta property="og:title" content="Speechace speaking test" />
+      <Helmet>
+        <meta property="og:title" content="Speechace speaking test 2" />
         <meta property="og:type" content="website" />
         <meta
           property="og:image"
@@ -69,7 +69,7 @@ function App() {
           property="og:url"
           content="https://www.speechace.com/speaking-test/"
         />
-      </Helmet> */}
+      </Helmet>
       <FacebookShareButton url={url} appId={'4634286036628789'}>
         {/* <FacebookCount url={url} /> */}
         {' Share ' + url}
