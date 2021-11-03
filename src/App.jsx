@@ -1,14 +1,7 @@
 import React, { useEffect, useState } from 'react';
+import { FacebookButton, FacebookCount } from 'react-social';
 
 import { Helmet } from 'react-helmet';
-// import TypeScriptDev from './TypeScriptDev.tsx';
-// import Player from './Player';
-// import VideoPart from './SpeakingTest/VideoPart/VideoPart';
-// import { AppCircle } from './Circle/AppCircle';
-// import { WaweSound } from './WaweSound/WaweSound';
-
-// import { Timer } from './Timer/Timer';
-
 import { VideoPlayer } from './SpeakingTest/VideoPlayer.js';
 import './App.scss';
 
@@ -20,48 +13,6 @@ function App() {
     playedSeconds: '',
     loadedSeconds: '',
   });
-
-  // useEffect(() => {
-  //   const meta1 = document.createElement('meta');
-  //   meta1.setAttribute('property', 'og:title');
-  //   meta1.setAttribute('content', 'Speechace speaking test');
-  //   document.head.appendChild(meta1);
-
-  //   // <meta property="og:title" content="Speechace speaking test" />
-
-  //   const meta2 = document.createElement('meta');
-  //   meta2.setAttribute('property', 'og:type');
-  //   meta2.setAttribute('content', 'website');
-  //   document.head.appendChild(meta2);
-  //   // <meta property="og:type" content="website" />
-
-  //   const meta3 = document.createElement('meta');
-  //   meta3.setAttribute('property', 'og:image');
-  //   meta3.setAttribute(
-  //     'content',
-  //     'https://picsum.photos/id/52/1200/600'
-  //   );
-  //   document.head.appendChild(meta3);
-  //   // <meta property="og:image" content="https://picsum.photos/id/52/1200/600" />
-
-  //   const meta4 = document.createElement('meta');
-  //   meta4.setAttribute('property', 'og:description');
-  //   meta4.setAttribute(
-  //     'content',
-  //     'Speechace speaking test result for'
-  //   );
-  //   document.head.appendChild(meta4);
-  //   // <meta property="og:description" content="Speechace speaking test result for " />
-
-  //   const meta5 = document.createElement('meta');
-  //   meta5.setAttribute('property', 'og:url');
-  //   meta5.setAttribute(
-  //     'content',
-  //     'https://www.speechace.com/speaking-test/'
-  //   );
-  //   document.head.appendChild(meta5);
-  //   // <meta property="og:url" content="https://www.speechace.com/speaking-test/" />
-  // }, []);
 
   const handleProgress = progress => {
     alert('progress--', progress);
@@ -75,6 +26,8 @@ function App() {
       loadedSeconds: currentLoadedSeconds,
     });
   };
+
+  const url = 'https://yuriirysyn.github.io/Sandbox/';
   // const [isPlaying, setIsPlaying] = useState(false);
 
   // if (player.current) {
@@ -99,7 +52,7 @@ function App() {
   //   }, 1);
   // }, [isPlaying]);
   return (
-    <div>
+    <>
       <Helmet>
         <meta property="og:title" content="Speechace speaking test" />
         <meta property="og:type" content="website" />
@@ -116,31 +69,37 @@ function App() {
           content="https://www.speechace.com/speaking-test/"
         />
       </Helmet>
+      <FacebookButton url={url} appId={'4634286036628789'}>
+        <FacebookCount url={url} />
+        {' Share ' + url}
+      </FacebookButton>
+    </>
+    // <div>
 
-      <VideoPlayer
-        player={player}
-        isAutoPlayEnabled={isAutoPlayEnabled}
-        setIsAutoPlayEnabled={setIsAutoPlayEnabled}
-        playerParams={playerParams}
-        handleProgress={handleProgress}
-      />
-      <p>{playerParams.playedSeconds}</p>
-      {!isAutoPlayEnabled && (
-        <button
-          onClick={() => {
-            // setPlayerParams({ ...playerParams, isPlaying: false });
-            // setTimeout(() => {
-            //   setPlayerParams({ ...playerParams, isPlaying: true });
-            // }, 100);
-            setPlayerParams({ ...playerParams, isPlaying: true });
+    //   <VideoPlayer
+    //     player={player}
+    //     isAutoPlayEnabled={isAutoPlayEnabled}
+    //     setIsAutoPlayEnabled={setIsAutoPlayEnabled}
+    //     playerParams={playerParams}
+    //     handleProgress={handleProgress}
+    //   />
+    //   <p>{playerParams.playedSeconds}</p>
+    //   {!isAutoPlayEnabled && (
+    //     <button
+    //       onClick={() => {
+    //         // setPlayerParams({ ...playerParams, isPlaying: false });
+    //         // setTimeout(() => {
+    //         //   setPlayerParams({ ...playerParams, isPlaying: true });
+    //         // }, 100);
+    //         setPlayerParams({ ...playerParams, isPlaying: true });
 
-            // player.current.play()
-          }}
-        >
-          Play {player.current}
-        </button>
-      )}
-    </div>
+    //         // player.current.play()
+    //       }}
+    //     >
+    //       Play {player.current}
+    //     </button>
+    //   )}
+    // </div>
   );
 }
 

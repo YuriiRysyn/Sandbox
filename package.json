@@ -21,6 +21,8 @@
     "react-parallax": "^3.2.1",
     "react-player": "^2.9.0",
     "react-scripts": "3.4.3",
+    "react-share": "^4.4.0",
+    "react-social": "^1.10.0",
     "redux": "^4.1.0",
     "save-dev": "0.0.1-security",
     "video-react": "^0.14.1"
