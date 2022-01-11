@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from 'react';
-import { FacebookButton, FacebookCount } from 'react-social';
+// import { FacebookButton, FacebookCount } from 'react-social';
 
-import { Helmet } from 'react-helmet';
+// import { Helmet } from 'react-helmet';
 import { VideoPlayer } from './SpeakingTest/VideoPlayer.js';
-import './App.scss';
-import { FacebookMessengerShareButton, FacebookShareButton } from 'react-share';
+// import './App.scss';
+// import { FacebookMessengerShareButton, FacebookShareButton } from 'react-share';
+import { RubricSelector } from './RubricSelector/RubricSelector.jsx';
+import { RecordView } from './VideoRecord/RecordView.jsx';
 
 function App() {
-  const player = React.createRef({});
+  const player = React.createRef();
   const [isAutoPlayEnabled, setIsAutoPlayEnabled] = useState(false);
   const [playerParams, setPlayerParams] = useState({
     isPlaying: false,
@@ -16,7 +18,6 @@ function App() {
   });
 
   const handleProgress = progress => {
-    alert('progress--', progress);
     // const currentPlayedSeconds = Math.round(progress.playedSeconds);
     const currentPlayedSeconds = Math.round(progress);
     const currentLoadedSeconds = Math.round(progress.loadedSeconds);
@@ -54,53 +55,36 @@ function App() {
   // }, [isPlaying]);
   return (
     <>
-      <Helmet>
-        <meta property="og:title" content="Speechace speaking test 2" />
-        <meta property="og:type" content="website" />
-        <meta
-          property="og:image"
-          content="https://picsum.photos/id/52/1200/600"
+      {/* <h1>Hello form App JSx</h1> */}
+
+      {/* <RecordView /> */}
+      <div>
+        <VideoPlayer
+          player={player}
+          isAutoPlayEnabled={isAutoPlayEnabled}
+          setIsAutoPlayEnabled={setIsAutoPlayEnabled}
+          playerParams={playerParams}
+          handleProgress={handleProgress}
         />
-        <meta
-          property="og:description"
-          content="Speechace speaking test result for "
-        />
-        <meta
-          property="og:url"
-          content="https://www.speechace.com/speaking-test/"
-        />
-      </Helmet>
-      <FacebookShareButton url={url} appId={'4634286036628789'}>
-        {/* <FacebookCount url={url} /> */}
-        {' Share ' + url}
-      </FacebookShareButton>
+        <p>{playerParams.playedSeconds}</p>
+
+        {!isAutoPlayEnabled && (
+          <button
+            onClick={() => {
+              // setPlayerParams({ ...playerParams, isPlaying: false });
+              // setTimeout(() => {
+              //   setPlayerParams({ ...playerParams, isPlaying: true });
+              // }, 100);
+              setPlayerParams({ ...playerParams, isPlaying: true });
+
+              // player.current.play()
+            }}
+          >
+            Play {player.current}
+          </button>
+        )}
+      </div>
     </>
-    // <div>
-
-    //   <VideoPlayer
-    //     player={player}
-    //     isAutoPlayEnabled={isAutoPlayEnabled}
-    //     setIsAutoPlayEnabled={setIsAutoPlayEnabled}
-    //     playerParams={playerParams}
-    //     handleProgress={handleProgress}
-    //   />
-    //   <p>{playerParams.playedSeconds}</p>
-    //   {!isAutoPlayEnabled && (
-    //     <button
-    //       onClick={() => {
-    //         // setPlayerParams({ ...playerParams, isPlaying: false });
-    //         // setTimeout(() => {
-    //         //   setPlayerParams({ ...playerParams, isPlaying: true });
-    //         // }, 100);
-    //         setPlayerParams({ ...playerParams, isPlaying: true });
-
-    //         // player.current.play()
-    //       }}
-    //     >
-    //       Play {player.current}
-    //     </button>
-    //   )}
-    // </div>
   );
 }
 

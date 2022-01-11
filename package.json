@@ -4,31 +4,39 @@
   "private": true,
   "homepage": "https://YuriiRysyn.github.io/Sandbox",
   "dependencies": {
+    "@material-ui/core": "^4.12.3",
     "@react-pdf/renderer": "^2.0.6",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
     "@types/react": "^17.0.3",
     "can-autoplay": "^3.0.2",
+    "express": "^4.17.1",
     "gh-pages": "^3.2.3",
+    "keymirror": "^0.1.1",
     "node-sass": "^4.14.1",
     "opengraph-react": "^1.3.12",
     "prop-types": "^15.7.2",
     "react": "^16.14.0",
+    "react-css-theme-switcher": "^0.3.0",
     "react-dom": "^16.14.0",
     "react-helmet": "^6.1.0",
+    "react-media-recorder": "^1.6.3",
     "react-paralax": "^1.0.0",
     "react-parallax": "^3.2.1",
     "react-player": "^2.9.0",
     "react-scripts": "3.4.3",
     "react-share": "^4.4.0",
     "react-social": "^1.10.0",
+    "react-tabs": "^3.2.3",
     "redux": "^4.1.0",
     "save-dev": "0.0.1-security",
-    "video-react": "^0.14.1"
+    "video-react": "^0.14.1",
+    "webpack": "5.41.1"
   },
   "scripts": {
     "start": "react-scripts start",
+    "server": "node server.js",
     "build": "react-scripts build",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
@@ -51,6 +59,11 @@
     ]
   },
   "devDependencies": {
-    "typescript": "^4.2.3"
+    "html-webpack-plugin": "^5.5.0",
+    "typescript": "^4.2.3",
+    "webpack": "^5.65.0",
+    "webpack-cli": "^4.9.1",
+    "webpack-dev-middleware": "^5.2.2",
+    "webpack-dev-server": "^4.6.0"
   }
 }
