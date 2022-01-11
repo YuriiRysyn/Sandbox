@@ -71,18 +71,23 @@ function App() {
         {!isAutoPlayEnabled && (
           <button
             onClick={() => {
-              // setPlayerParams({ ...playerParams, isPlaying: false });
-              // setTimeout(() => {
-              //   setPlayerParams({ ...playerParams, isPlaying: true });
-              // }, 100);
               setPlayerParams({ ...playerParams, isPlaying: true });
-
-              // player.current.play()
             }}
           >
             Play {player.current}
           </button>
         )}
+
+        {playerParams &&
+          playerParams.isPlaying(
+            <button
+              onClick={() => {
+                setPlayerParams({ ...playerParams, isPlaying: false });
+              }}
+            >
+              Stop playing 
+            </button>
+          )}
       </div>
     </>
   );
